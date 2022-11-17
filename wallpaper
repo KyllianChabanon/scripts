@@ -1,0 +1,8 @@
+#!/bin/bash
+
+longueur=$(xdpyinfo | grep 'dimensions:' | tr -s ' ' | cut -d ' ' -f 3 | cut -d 'x' -f 1)  # On stocke la longueur de l'écran.
+
+largeur=$(xdpyinfo | grep 'dimensions:' | tr -s ' ' | cut -d ' ' -f 3 | cut -d 'x' -f 2)  # On stocke la largeur de l'écran.
+
+convert ~/Téléchargements/wallpaper.png -gravity center -extent "$longueur"x"$largeur" wallpaper.png
+display -window root wallpaper.png
